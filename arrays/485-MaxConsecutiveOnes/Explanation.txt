@@ -1,0 +1,32 @@
+Problem Statement:
+
+Given a binary array nums, return the maximum number of consecutive 1's in the array.
+
+Example 1:
+
+Input: nums = [1,1,0,1,1,1]
+Output: 3
+Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
+Example 2:
+
+Input: nums = [1,0,1,1,0,1]
+Output: 2
+ 
+Constraints:
+
+1 <= nums.length <= 10^5
+nums[i] is either 0 or 1.
+
+
+This problem is straightforward, and requires us to traverse the input array only once and return the maximum amount of ones in a row. To do so,
+we can implement a for loop that keeps track of the overall max number of ones seen in a row, as well as the current maximum number of ones at the
+current array position. Each time we increment i, we must check if the array element at i is equal to '1'. If so, we increment our current maximum.
+We also must check if the current element is not equal to '1', and if so we check if the current maximum is greater than the maximum we have seen so far.
+If it is, we set the overall maximum to the current maximum, and then reset our current maximum to '0'. Finally, we return the greater of the current
+maximum, and the recorded overall maximum.
+
+
+
+Time Complexity: O(n) as we traverse the array one time.
+
+Space Complexity: O(1) as we do not utilize any (meaningful) additional space for this solution.
