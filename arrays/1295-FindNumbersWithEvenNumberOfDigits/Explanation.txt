@@ -1,0 +1,37 @@
+Problem Statement:
+
+Given an array nums of integers, return how many of them contain an even number of digits.
+
+
+Example 1:
+
+Input: nums = [12,345,2,6,7896]
+Output: 2
+Explanation: 
+12 contains 2 digits (even number of digits). 
+345 contains 3 digits (odd number of digits). 
+2 contains 1 digit (odd number of digits). 
+6 contains 1 digit (odd number of digits). 
+7896 contains 4 digits (even number of digits). 
+Therefore only 12 and 7896 contain an even number of digits.
+
+Example 2:
+
+Input: nums = [555,901,482,1771]
+Output: 1 
+Explanation: 
+Only 1771 contains an even number of digits.
+ 
+
+Constraints:
+
+1 <= nums.length <= 500
+1 <= nums[i] <= 10^5
+
+This problem requires a single traversal of the array, and evaluation of each elements length. If the length modulus '2' results in a '0',
+then we know the number has an even number of digits, otherwise it will have an odd number of digits. Each time we hit an even number, we
+increment a counter and return that counter at the end of the traversal.
+
+Time Complexity: O(n) because it requires a single traversal of the array.
+
+Space Complexity: O(1) because there are no significant additional data structures required in the solution.

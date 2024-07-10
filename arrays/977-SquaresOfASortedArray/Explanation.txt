@@ -1,0 +1,48 @@
+Problem Statement:
+
+Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+
+
+Example 1:
+
+Input: nums = [-4,-1,0,3,10]
+Output: [0,1,9,16,100]
+Explanation: After squaring, the array becomes [16,1,0,9,100].
+After sorting, it becomes [0,1,9,16,100].
+Example 2:
+
+Input: nums = [-7,-3,2,3,11]
+Output: [4,9,9,49,121]
+ 
+
+Constraints:
+
+1 <= nums.length <= 10^4
+-104 <= nums[i] <= 10^4
+nums is sorted in non-decreasing order.
+ 
+
+Follow up: Squaring each element and sorting the new array is very trivial, could you find an O(n) solution using a different approach?
+
+The "brute force" solution is a simple traversal of the array, and multiplying each number of the array by itself (squaring it), and then using the Arrays library
+to sort the array.
+
+Time Complexity: O(n log(n) ) due to one traversal of the array, as well as the sorting algorithm.
+
+Space Complexity: O(1) due to no additional data structure being used
+
+
+
+Follow up Proposition:
+
+Since the array is sorted in non-decreasing order, the highest value squares will be at the far left and far right ends of the array, being negative and postive, respectively.
+Rather than simply traversing the array with one pointer, traversing the array with two pointers starting from each end, and inserting the larger of the squares of each pointer
+into a new array, and incrementing/decrementing the selected value. This loop will run until the pointers are equal to one another, and then one final square will be done and inserted
+into the new array at index '0'.
+
+Time Complexity: O(n) due to only one traversal of the array.
+
+Space Complexity: O(n) due to an additional array being utilized.
+
+The trade-off in better time complexity comes at the cost of increased space complexity, and would need to be evaluated for each particular scenario where this algorithm is being
+implemented to know which method to choose.
