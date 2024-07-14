@@ -1,0 +1,42 @@
+Problem Statement:
+
+Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie.
+
+Each child i has a greed factor g[i], which is the minimum size of a cookie that the child will be content with; and each cookie j has a size s[j]. If s[j] >= g[i], we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.
+
+
+Example 1:
+
+Input: g = [1,2,3], s = [1,1]
+Output: 1
+Explanation: You have 3 children and 2 cookies. The greed factors of 3 children are 1, 2, 3. 
+And even though you have 2 cookies, since their size is both 1, you could only make the child whose greed factor is 1 content.
+You need to output 1.
+Example 2:
+
+Input: g = [1,2], s = [1,2,3]
+Output: 2
+Explanation: You have 2 children and 3 cookies. The greed factors of 2 children are 1, 2. 
+You have 3 cookies and their sizes are big enough to gratify all of the children, 
+You need to output 2.
+ 
+
+Constraints:
+
+1 <= g.length <= 3 * 10^4
+0 <= s.length <= 3 * 10^4
+1 <= g[i], s[j] <= 2^31 - 1
+
+
+Explanation:
+For the brute force algorithm, I first sort both arrays, and then traverse the children array, checking
+for each children if there is a cookie remaining that would satisfy their level of greed. If so, I remove the
+cookie from the cookies array, and increment the count of contentChildren. This algorithm is not the most efficient
+way to solve this problem though. A greedy algorithm where we traverse each array simultaneously, is a better approach and
+is demonstrated in my optimized solution.
+
+Time Complexity of Brute Force: O( n logn + m logm + n*m) - due to each sorting and traversal, and then n*m from the matching function. Not ideal.
+
+Space Complexity: O(1)
+
+Time Complexity of Optimized: O(n logn + m logm) - due to the sorting and traversal, however there is no additional matching complexity other than n + m which is trivial compared to the other input.
