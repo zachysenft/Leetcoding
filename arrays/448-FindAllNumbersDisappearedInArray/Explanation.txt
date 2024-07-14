@@ -1,0 +1,40 @@
+Problem Statement:
+
+Given an array nums of n integers where nums[i] is in the range [1, n], return an array of all the integers in the range [1, n] that do not appear in nums.
+
+ 
+Example 1:
+
+Input: nums = [4,3,2,7,8,2,3,1]
+Output: [5,6]
+Example 2:
+
+Input: nums = [1,1]
+Output: [2]
+ 
+
+Constraints:
+
+n == nums.length
+1 <= n <= 105
+1 <= nums[i] <= n
+ 
+
+Follow up: Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
+
+
+Explanation:
+
+Solved for the follow-up, however the brute force solution is to create a HashSet of values 1 through n, and then traverse and remove
+values from the set as they appear in the nums array. This however requires additional O(n) space complexity and we do not want that as it
+would get inefficient at higher inputs. To solve in O(n) runtime and without additional data structures, we need to use the existing nums
+array effectively. We can use the indices as flags for if the element has been seen or not, and traverse through the array one time and return
+the remainder of elements that are not negative (they have not been seen).
+
+First, we traverse the nums array, and set an index equal to the absolute value of current element (i). If the element at nums[index-1] is positive,
+we will set it equal to the negative version of the value, in order to track that it has been seen. Once we have traversed the nums array once, we
+will traverse it again! This time, we will just check whether or not each element's value in the nums array is positive... if so, we will THE INDEX of
+that element to our result list, and return it once the entire array is traversed.
+
+Time Complexity: O(n) as the multiple loops O(2n) simplifies to O(n).
+Space Complexity: O(1) technically, since it was established the returning list would not count.
