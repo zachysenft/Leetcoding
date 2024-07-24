@@ -1,0 +1,50 @@
+Problem Statement:
+
+Given head, the head of a linked list, determine if the linked list has a cycle in it.
+
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+
+Return true if there is a cycle in the linked list. Otherwise, return false.
+
+ 
+
+Example 1:
+
+
+Input: head = [3,2,0,-4], pos = 1
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+Example 2:
+
+
+Input: head = [1,2], pos = 0
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
+Example 3:
+
+
+Input: head = [1], pos = -1
+Output: false
+Explanation: There is no cycle in the linked list.
+ 
+
+Constraints:
+
+The number of the nodes in the list is in the range [0, 104].
+-105 <= Node.val <= 105
+pos is -1 or a valid index in the linked-list.
+ 
+
+Follow up: Can you solve it using O(1) (i.e. constant) memory?
+
+
+Explanation:
+This is an efficient algorithm for detecting a cycle in a linked list, because it does not need a HashMap or other additional data structures
+to help it. The way to solve this problem is to use two pointers, one fast and one slow. The fast pointer we will skip a node each cycle, and the slow
+pointer we will simply set to the next node. IF there is a cycle in the linked list, then by the time the slow pointer reaches the end of the list, it will
+find that the elements at slow and fast pointer are the same - meaning it is a cycle! Otherwise, at some point the tail of the linked list will not have a 
+next element (or a next.next element) and at that point we break out of the loop and return that there is no cycle.
+
+Time Complexity: O(n) We still need to traverse the list, and worse case is the slow pointer traverses all n elements.
+
+Space Complexity: O(1) No additional data structures used.
