@@ -1,0 +1,42 @@
+Problem Statement:
+
+Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head.
+
+ 
+
+Example 1:
+
+
+Input: head = [1,2,6,3,4,5,6], val = 6
+Output: [1,2,3,4,5]
+Example 2:
+
+Input: head = [], val = 1
+Output: []
+Example 3:
+
+Input: head = [7,7,7,7], val = 7
+Output: []
+ 
+
+Constraints:
+
+The number of nodes in the list is in the range [0, 104].
+1 <= Node.val <= 50
+0 <= val <= 50
+
+
+
+Explanation:
+
+To solve this problem, we first initialize a new node that we will put just ahead of the current head of the list, assigning it a value of -1 and a
+next pointer to the head node. We then can initialize two pointers, a cur pointer at the head, and a prev pointer at the temp node we just created that
+sits just before the head node. We will loop through this linked list while the cur node is not null, by checking if the cur node value is equal to the
+deletion value. If it is, we will set prev.next to cur.next (otherwise we just set prev equal to cur), and then increment cur to the next node.
+This loop runs as long as cur is not null (past the end of the llist), and we will return temp.next as the head, since it will either still be equal to the
+original head node, or if not, it will be equal to the first non-deleted node (check.). In the loop, if the value of cur is not equal to the deletion value,
+we simply can increment prev and cur to the next nodes in the list.
+
+Time Complexity: O(n) one loop!
+
+Space Complexity: O(1) no additional data structures!
