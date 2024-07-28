@@ -1,0 +1,44 @@
+Problem Statement:
+
+Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+ 
+
+Example 1:
+
+
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+Example 2:
+
+Input: head = [1], n = 1
+Output: []
+Example 3:
+
+Input: head = [1,2], n = 1
+Output: [1]
+ 
+
+Constraints:
+
+The number of nodes in the list is sz.
+1 <= sz <= 30
+0 <= Node.val <= 100
+1 <= n <= sz
+ 
+
+Follow up: Could you do this in one pass?
+
+
+Explanation:
+To solve this problem, I chose to maintain a few different pointers so that only one traversal through the list was required. For the first pointer,
+We decrement n until it is 0, and assign the fast pointer equal to the next node each time. Now, our fast pointer is n nodes ahead of the other pointers,
+and we want to delete the element that is n nodes from the end - so we simply need to increment all pointers until the fast pointer is at the end of the list,
+then we can delete the element at med pointer, and reassign slow.next to med.next. We can then return the head of the list.
+
+One detail I left out in the above explanation is that after we move the fast pointer to n nodes ahead of the others, we need to check if the pointer is null
+or not. IF it is null, we know that we are past the end of the list, and we need to delete the head node - and we do that check here.
+
+Time Complexity: O(n) - one pass!
+
+Space Complexity: O(1) - no additional data structures!
