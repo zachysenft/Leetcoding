@@ -1,0 +1,44 @@
+Problem Statement:
+
+Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list.
+
+The first node is considered odd, and the second node is even, and so on.
+
+Note that the relative order inside both the even and odd groups should remain as it was in the input.
+
+You must solve the problem in O(1) extra space complexity and O(n) time complexity.
+
+ 
+
+Example 1:
+
+Input: head = [1,2,3,4,5]
+Output: [1,3,5,2,4]
+
+Example 2:
+
+Input: head = [2,1,3,5,6,4,7]
+Output: [2,3,6,7,1,5,4]
+ 
+
+Constraints:
+
+The number of nodes in the linked list is in the range [0, 104].
+-10^6 <= Node.val <= 10^6
+
+
+
+Explanation:
+This problem became more difficult with the O(1) space and O(n) time complexities, however that's why it is a medium. In order to solve this,
+we will create two separate linked lists (of the same nodes that are given, so is still constant space) at the odd head and even head, which are
+the head node and head.next node. We also will copy that even head node into another pointer to keep as the head of the even linked list. The even
+pointer will always be ahead of the odd one, so we use a while loop with conditions of the even node not being null, and the even.next node not being
+null since we will use nodes up to there within the loop.
+
+Each go around of this while loop, we will add new nodes to the divergent lists we have (odd and even), with the odd.next node being two nodes ahead of the
+current position, and same for the even node. We then increment to the next nodes we just copied and repeat until the even pointer hits the end of the input list.
+
+We lastly will combine the divergent lists by assigning odd.next to the evenhead we saved earlier, and returning the original head of the list.
+
+Time Complexity: O(n) as ordered for the one loop we do
+Space Complexity: O(1) as ordered, since we do not create any new lists, only use given nodes from the input list
