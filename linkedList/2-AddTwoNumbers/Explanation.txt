@@ -1,0 +1,46 @@
+Problem Statement:
+
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+
+Example 1:
+
+Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807.
+
+Example 2:
+
+Input: l1 = [0], l2 = [0]
+Output: [0]
+
+Example 3:
+
+Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+Output: [8,9,9,9,0,0,0,1]
+ 
+
+Constraints:
+
+The number of nodes in each linked list is in the range [1, 100].
+0 <= Node.val <= 9
+It is guaranteed that the list represents a number that does not have leading zeros.
+
+Explanation:
+
+This question is a great example of why it is important to take time to understand the question and ask any clarifying questions if needed. A key detail is that
+the digits are stored in reverse order, and that numbers do not contain any leading zero other than the value 0 itself.
+
+To solve this problem, use an integer to hold the value of the carry from addition, as well as start a linked list to return the answer. Traverse while either of l1 and l2
+are not null, and assign a node of value 0 if they are. Next, sum the values of the two nodes, as well as the carry value. If the sum is greater than 9, we need to carry a 1
+to the next set, and set sum equal to the modulus of 10 of its current value. Then, create a new node of value of the sum, and add it as the next node in the answer list, and
+move along to the next two nodes of l1 and l2. Once both lists are null, add one more carry node at the front if needed, and return the original head pointer.
+
+Runtime Complexity: O(n) - n being the size of the larger list
+
+Space Complexity: O(m+n) - creating a new list of the size of approximately m + n
+
+
+Side Note: beat 100% runtime and 90% memory usage

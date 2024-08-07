@@ -1,0 +1,35 @@
+Problem Statement:
+
+Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+
+Example 1:
+
+Input: head = [1,2,2,1]
+Output: true
+Example 2:
+
+
+Input: head = [1,2]
+Output: false
+ 
+
+Constraints:
+
+The number of nodes in the list is in the range [1, 105].
+0 <= Node.val <= 9
+ 
+
+Follow up: Could you do it in O(n) time and O(1) space?
+
+
+Explanation:
+Yes, we can do this in O(n) time and O(1) space in two different ways. The first is more intuitive, and would involve reversing the first half of the 
+linked list, and once we are at the middle element or if the size is even then at the beginning of the two lists that are split in the middle, we just need
+to compare node by node the value and return true if they are the same, else false.
+
+The less intuitive but cooler way to do this, would be to create a stringbuilder and append each value to it. Once we reach the end of the linked list, compare
+the value of the reversed stringbuilder to the actual value and return true if they are identical. A nice changeup from having to keep track of the prev node!
+
+Time Complexity: O(n) one loop
+
+Space Complexity: O(1) constant memory
